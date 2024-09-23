@@ -3,19 +3,45 @@
 {
 	"name": "C# (.NET)",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/dotnet:1-8.0",
+	// "image": "mcr.docker.internal.cba/devcontainers/dotnet:1-8.0",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"args": {
+			"HTTPS_PROXY": "http://host.docker.internal:3128",
+			"HTTP_PROXY": "http://host.docker.internal:3128",
+			"https_proxy": "http://host.docker.internal:3128",
+			"http_proxy": "http://host.docker.internal:3128"
+		}
+	},
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
-
+	"remoteEnv": {
+		"HTTPS_PROXY": "http://host.docker.internal:3128",
+		"HTTP_PROXY": "http://host.docker.internal:3128",
+		"https_proxy": "http://host.docker.internal:3128",
+		"http_proxy": "http://host.docker.internal:3128",
+		"REQUESTS_CA_BUNDLE": "/etc/sst/certs/ca.pem",
+		"CA_BUNDLE": "/etc/sst/certs/ca.pem"
+	},
+	"containerEnv": {
+		"HTTPS_PROXY": "http://host.docker.internal:3128",
+		"HTTP_PROXY": "http://host.docker.internal:3128",
+		"https_proxy": "http://host.docker.internal:3128",
+		"http_proxy": "http://host.docker.internal:3128",
+		"REQUESTS_CA_BUNDLE": "/etc/sst/certs/ca.pem",
+		"CA_BUNDLE": "/etc/sst/certs/ca.pem"
+	},
 	// Configure tool-specific properties.
 	"customizations": {
 		// Configure properties specific to VS Code.
 		"vscode": {
-			"settings": {},
+			"settings": {
+			},
 			"extensions": [
-				"streetsidesoftware.code-spell-checker"
-			]
+				"streetsidesoftware.code-spell-checker",
+				"ms-dotnettools.csharp"
+			],
 		}
 	},
 
@@ -29,10 +55,10 @@
 		"5001": {
 			"protocol": "https"
 		}
-	}
+	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [5000, 5001],
+	"forwardPorts": [5000, 5001]
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "dotnet restore",

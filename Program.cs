@@ -21,12 +21,15 @@ public record Weather
 {
     public string City { get; set; }
 
+    public DateTime dtNow {get; set;}
+
     public Weather(string city)
     {
         City = city;
         Conditions = "Cloudy";
         // Temperature here is in celsius degrees, hence the 0-40 range.
         Temperature = new Random().Next(0,40).ToString();
+        dtNow = new DateTime();
     }
 
     public string Conditions { get; set; }
