@@ -107,3 +107,6 @@ trademarks or logos is subject to and must follow
 [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
 Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
 Any use of third-party trademarks or logos are subject to those third-party's policies.
+
+## Proxy Reference
+To make the devcontainer work behind a corporate network, had to put changes referring [blog](https://bw861987.medium.com/vscode-devcontainers-with-a-corporate-proxy-9b6551c4087c).
